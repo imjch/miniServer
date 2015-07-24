@@ -1,0 +1,9 @@
+
+PROJECT(miniServer)
+
+
+ADD_SUBDIRECTORY(base)
+AUX_SOURCE_DIRECTORY(base DIR_SRCS)
+INCLUDE_DIRECTORIES(../include/)
+ADD_EXECUTABLE(miniserver main.cpp ${DIR_SRCS})
+#TARGET_LINK_LIBRARIES(miniserver httpserver)
