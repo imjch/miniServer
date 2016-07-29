@@ -1,15 +1,20 @@
 #ifndef HTTPSERVER_INCLUDE
 #define HTTPSERVER_INCLUDE
+#include "HTTPMessageHandler.h"
 #include <string>
-class HTTPServer
+#include "RoleServer.h"
+#include "ServerDefine.h"
+
+class HTTPServer:public IRoleServer
 {
 public:
-    HTTPServer():http_message(http_message){
-
-    }
+    HTTPServer();
+    void Start() override;
+    std::string GetServerName();
 private:
-    std::string http_message;
-
+    HTTPMessage http_message;
+    void HandleRequest(FileDescripterType connfd);
+    void HandleHTTP(HTTPMessage& httpMessage);
 };
 
 
